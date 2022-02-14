@@ -10,7 +10,7 @@ import * as dat from 'lil-gui'
  * Base
  */
 // Debug
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 
 // Canvas
 const canvas = document.querySelector('canvas.webgl')
@@ -53,6 +53,8 @@ fontLdr.load(
             }
             
         )
+
+       
         textGeometry.center()
 
         // Hader way
@@ -70,7 +72,9 @@ fontLdr.load(
 
         const material = new THREE.MeshMatcapMaterial({matcap: matCapTexture})
         const text = new THREE.Mesh(textGeometry, material)
-        
+
+
+                
         scene.add(text)
 
         console.time('donuts')
@@ -94,7 +98,7 @@ fontLdr.load(
             torus.scale.y = scale
             torus.scale.z = scale
 
-            scene.add(torus)            
+            scene.add(torus)
         }
 
         console.timeEnd('donuts')
@@ -112,7 +116,13 @@ scene.add(ambientLight)
 
 const pointLight = new THREE.PointLight(0xffffff, 0.5)
 pointLight.position.set(2,3,4)
+
 scene.add(pointLight)
+
+// gui.add(pointLight.position, 'x').min(-10).max(10).step(.5)
+// gui.add(pointLight.position, 'y').min(-10).max(10).step(.5)
+// gui.add(pointLight.position, 'z').min(-10).max(10).step(.5)
+
  
 
 
